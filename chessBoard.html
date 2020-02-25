@@ -1,0 +1,52 @@
+<!--CREATEDE BY SASCHA BORGES LUCAS - saschaborgeslucas@gmail.com-->
+        <!--cria um tabuleiro de xadrez com javascrip. -->
+<meta charset="UTF-8">
+<canvas width="1280" height="700">
+</canvas>
+<script>
+//Variables
+	var tela = document.querySelector("canvas");
+	var pincel = tela.getContext("2d");
+//Functions
+    <!--draw squares-->>
+	function desenhaquadrado(cor, corDaBorda, x, y, w,h){
+
+		pincel.fillStyle=cor;
+		pincel.fillRect(x,y,w,h);
+		pincel.fillStroke=corDaBorda;
+		pincel.strokeRect(x,y,w,h);
+	}
+	<!--draw the chess board-->>
+	function drawChessboard(collor, x,y){
+		for (c=0;c<y;c++){
+		if(c%2==0){
+			for (var i=0;i<x;i++){
+				if(i%2!=0){
+					desenhaquadrado(collor,"black", i*50,c*50,50,50);
+				}
+				else{
+					desenhaquadrado("white","black", i*50,c*50,50,50);
+				}
+				
+			}
+				 
+		}
+		else{
+			for (var n=0;n<x;n++){
+				if(n%2==0){
+					desenhaquadrado(collor,"black", n*50,c*50,50,50,50);
+				}
+				else{
+					desenhaquadrado("white","black", n*50,c*50,50,50,50);
+				}
+			}		
+		}
+	}
+	
+	}
+//Program
+
+	<!--by default a chess board has 64 squares (8x8), but you can enter any number you prefer-->
+    drawChessboard("black", 8,8);
+
+</script>
